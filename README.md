@@ -1,4 +1,3 @@
-[![Docs](https://img.shields.io/badge/docs-0.1.1-green)](https://docs.rs/inst_derive/latest/inst_derive/)
 [![crates.io](https://img.shields.io/badge/crates.io-0.1.1-green)](https://crates.io/crates/inst_derive)
 
 ## Description
