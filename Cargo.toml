@@ -1,6 +1,6 @@
 [package]
 name = "inst_derive"
-version = "0.1.1"
+version = "0.1.2"
 edition = "2024"
 license = "MIT OR Apache-2.0"
 description = "Derive macro for tagged union enums implementing the Instantiable trait in safety-net"

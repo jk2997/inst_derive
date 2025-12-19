@@ -122,10 +122,9 @@ fn impl_instantiable_trait(ast: DeriveInput) -> TokenStream2 {
     let from_constant_impl = if let Some(const_var) = constant_variant {
         quote! {
             fn from_constant(val: Logic) -> Option<Self> {
-                if (val == Logic::True) || (val == Logic::False) {
-                    return #const_var::from_constant(val).map(#ident::#const_var);
-                } else {
-                    return None;
+                match #const_var::from_constant(val) {
+                    Some(inner) => Some(#ident::#const_var(inner)),
+                    None => None
                 }
             }
         }
@@ -312,10 +311,9 @@ mod tests {
                 }
 
                 fn from_constant(val: Logic) -> Option<Self> {
-                    if (val == Logic::True) || (val == Logic::False) {
-                        return Gate::from_constant(val).map(SimpleCell::Gate);
-                    } else {
-                        return None;
+                    match Gate::from_constant(val) {
+                        Some(inner) => Some(SimpleCell::Gate(inner)),
+                        None => None
                     }
                 }
 
